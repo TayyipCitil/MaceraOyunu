@@ -1,9 +1,9 @@
 public class LocBattle extends Location {
     int counterEntry;
-    Character enemy;
+    CharOfEnemy enemy;
     String lostProperty;
 
-    LocBattle(Character enemy, String lostProperty, int counterEntry) {
+    LocBattle(CharOfEnemy enemy, String lostProperty, int counterEntry) {
         this.enemy = enemy;
         this.lostProperty = lostProperty;
         this.counterEntry = counterEntry;

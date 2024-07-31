@@ -24,7 +24,8 @@ public abstract class Game {
             if (select == 1) {
                 CharOfHero.selectChar.useTool();
             } else if (select == 2) {
-                Character.printHealth();
+                System.out.println("Sağlık: " + CharOfHero.selectChar.health);
+                System.out.println("Eldeki eşya: " + Main.useTool);
                 Location.selectLoc();
             } else {
                 System.out.println("Hatalı seçim");
@@ -44,6 +45,5 @@ public abstract class Game {
             System.out.println("==========👰Kazandın🤵===========");
         }
     }
-
 
 }
