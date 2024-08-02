@@ -25,7 +25,7 @@ public abstract class Game {
                 CharOfHero.selectChar.useTool();
             } else if (select == 2) {
                 System.out.println("Sağlık: " + CharOfHero.selectChar.health);
-                System.out.println("Eldeki eşya: " + Main.useTool);
+                System.out.println("Eldeki eşya: " + Main.useTool.skin);
                 Location.selectLoc();
             } else {
                 System.out.println("Hatalı seçim");

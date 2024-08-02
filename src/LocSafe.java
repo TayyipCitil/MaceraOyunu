@@ -20,7 +20,7 @@ public class LocSafe extends Location {
         System.out.println("Kesedeki altın: "+ CharOfHero.selectChar.money);
         int selectTool;
         Scanner input = new Scanner(System.in);
-        System.out.println("(Ürün seç)\n(0) 🏹 : 20 altın\n(1) 🛡️ : 15 altın\n(2) 🗡️ : 25 altın\n Çıkış(3): ");
+        System.out.print("(Ürün seç)\n(0) 🏹 : 20 altın\n(1) 🛡️ : 15 altın\n(2) 🗡️ : 25 altın\n Çıkış(3): ");
         selectTool = input.nextInt();
         if (selectTool == 0 || selectTool == 1 || selectTool == 2) {
             if (store[selectTool]==null) {
