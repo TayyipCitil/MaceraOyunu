@@ -1,14 +1,13 @@
 import java.util.Scanner;
-
 public class CharOfHero extends Character {
-    static Scanner input = new Scanner(System.in);
-    static CharOfHero selectChar;
-    public Inventory[] inventories;
+    public static Scanner input = new Scanner(System.in);
+    public static CharOfHero selectChar;
+    public Inventory[] inventory;
     public int defance;
 
-    CharOfHero(Inventory[] inventories, int defance, String skin, int health, int damage, int money) {
+    CharOfHero(String skin, int health, int damage, int money,Inventory[] inventory, int defance) {
         super(skin, health, damage, money);
-        this.inventories = inventories;
+        this.inventory = inventory;
         this.defance = defance;
     }
 

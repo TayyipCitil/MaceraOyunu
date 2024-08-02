@@ -1,5 +1,4 @@
 import java.util.Scanner;
-
 public abstract class Game {
     public static boolean keepGoingGame = true;
 

@@ -12,7 +12,7 @@ public class LocSafe extends Location {
     }
 
     public void regeneration() {
-        CharOfHero.selectChar.health = CharOfHero.selectChar.maxHealthy;
+        CharOfHero.selectChar.health = CharOfHero.selectChar.maxHealth;
         System.out.println("Canınn yenilendi");
     }
 
