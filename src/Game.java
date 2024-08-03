@@ -23,8 +23,8 @@ public abstract class Game {
             if (select == 1) {
                 CharOfHero.selectChar.useTool();
             } else if (select == 2) {
-                System.out.println("Sağlık: " + CharOfHero.selectChar.health);
-                System.out.println("Eldeki eşya: " + Main.useTool.skin);
+                System.out.println("Sağlık: " + CharOfHero.selectChar.getHealth());
+                System.out.println("Eldeki eşya: " + Main.useTool.getSkin());
                 Location.selectLoc();
             } else {
                 System.out.println("Hatalı seçim");
@@ -34,7 +34,7 @@ public abstract class Game {
     }
 
     public static void winOrLose() {
-        if (CharOfHero.selectChar.health <= 0) {
+        if (CharOfHero.selectChar.getHealth() <= 0) {
             //lost
             System.out.println("==========☠️Kaybettin☠️==========");
         } else {

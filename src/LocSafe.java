@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class LocSafe extends Location {
-    static Inventory[] store = {Main.arrow, Main.shield, Main.sword};
+    private static Inventory[] store = {Main.arrow, Main.shield, Main.sword};
 
     public void giveProperties() {
         if (Inventory.lostPropertyNum == 3) {
@@ -12,25 +12,25 @@ public class LocSafe extends Location {
     }
 
     public void regeneration() {
-        CharOfHero.selectChar.health = CharOfHero.selectChar.maxHealth;
+        CharOfHero.selectChar.setHealth(CharOfHero.selectChar.getMaxHealth());
         System.out.println("Canınn yenilendi");
     }
 
     public void buy() {
-        System.out.println("Kesedeki altın: "+ CharOfHero.selectChar.money);
+        System.out.println("Kesedeki altın: " + CharOfHero.selectChar.getMoney());
         int selectTool;
         Scanner input = new Scanner(System.in);
         System.out.print("(Ürün seç)\n(0) 🏹 : 20 altın\n(1) 🛡️ : 15 altın\n(2) 🗡️ : 25 altın\n Çıkış(3): ");
         selectTool = input.nextInt();
         if (selectTool == 0 || selectTool == 1 || selectTool == 2) {
-            if (store[selectTool]==null) {
+            if (store[selectTool] == null) {
                 System.out.println("Bu aleti satın aldın");
-            } else if (CharOfHero.selectChar.money < store[selectTool].money) {
+            } else if (CharOfHero.selectChar.getMoney() < store[selectTool].getMoney()) {
                 System.out.println("Yetersiz altın");
             } else {
                 System.out.println("Hayırlı olsun");
-                Main.inventory[selectTool+1] = store[selectTool];//ilk alet hep yumruk olsundiye +1 ekledim
-                CharOfHero.selectChar.money -= store[selectTool].money;
+                Main.inventory[selectTool + 1] = store[selectTool];//ilk alet hep yumruk olsundiye +1 ekledim
+                CharOfHero.selectChar.setMoney(CharOfHero.selectChar.getMoney() - store[selectTool].getMoney());
                 store[selectTool] = null;
             }
         } else if (selectTool == 3) {
@@ -39,6 +39,10 @@ public class LocSafe extends Location {
             System.out.println("Yanlış seçim");
         }
     }
-
-
+    public Inventory[] getStore(){
+        return store;
+    }
+    public void setStore(Inventory[] store){
+        LocSafe.store=store;
+    }
 }

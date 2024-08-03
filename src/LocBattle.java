@@ -1,7 +1,7 @@
 public class LocBattle extends Location {
-    int counterEntry;
-    CharOfEnemy enemy;
-    String lostProperty;
+    private int counterEntry;
+    private CharOfEnemy enemy;
+    private String lostProperty;
 
     LocBattle(CharOfEnemy enemy, String lostProperty, int counterEntry) {
         this.enemy = enemy;
@@ -11,42 +11,58 @@ public class LocBattle extends Location {
 
     public void combat() {
         do {
-            if (CharOfHero.selectChar.health < 0 && this.enemy.health < 0) {
-                CharOfHero.selectChar.health = 0;
-                this.enemy.health = 0;
-            } else if (CharOfHero.selectChar.health < 0) {
-                CharOfHero.selectChar.health = 0;
-            } else if (this.enemy.health < 0) {
-                this.enemy.health = 0;
+            if (CharOfHero.selectChar.getHealth() < 0 && this.enemy.getHealth() < 0) {
+                CharOfHero.selectChar.setHealth(0);
+                this.enemy.setHealth(0);
+            } else if (CharOfHero.selectChar.getHealth() < 0) {
+                CharOfHero.selectChar.setHealth(0);
+            } else if (this.enemy.getHealth() < 0) {
+                this.enemy.setHealth(0);
             }
-            System.out.print(CharOfHero.selectChar.skin + "(Sen) Sağlık: " + CharOfHero.selectChar.health + "\t");
-            System.out.println(this.enemy.skin + "(rakip) Sağlık: " + this.enemy.health);
+            System.out.print(CharOfHero.selectChar.getSkin() + "(Sen) Sağlık: " + CharOfHero.selectChar.getHealth() + "\t");
+            System.out.println(this.enemy.getSkin() + "(rakip) Sağlık: " + this.enemy.getHealth());
             System.out.println("=====================");
 
-            CharOfHero.selectChar.health -= this.enemy.damage;
-            this.enemy.health -= CharOfHero.selectChar.damage;
+            CharOfHero.selectChar.setHealth(CharOfHero.selectChar.getHealth() - this.enemy.getDamage());
+            this.enemy.setHealth(this.enemy.getHealth() - CharOfHero.selectChar.getDamage());
 
-            if (CharOfHero.selectChar.health <= 0 && this.enemy.health <= 0) {
+            if (CharOfHero.selectChar.getHealth() <= 0 && this.enemy.getHealth() <= 0) {
                 System.out.println("💀Öldün💀");
                 keepGoingGame = false;
                 break;
-            } else if (CharOfHero.selectChar.health <= 0) {
+            } else if (CharOfHero.selectChar.getHealth() <= 0) {
                 System.out.println("💀Öldün💀");
                 keepGoingGame = false;
                 break;
-            } else if (this.enemy.health <= 0) {
+            } else if (this.enemy.getHealth() <= 0) {
                 if (counterEntry == 0) {
                     System.out.println("Mücadeleyi kazandın ve kayıp eşya " + this.lostProperty + "buldun ");
                     Inventory.lostPropertyNum++;
                     counterEntry++;
                 }
-                System.out.println("Kazanılan para: " + this.enemy.money);
-                CharOfHero.selectChar.money += this.enemy.money;
-
+                System.out.println("Kazanılan para: " + this.enemy.getMoney());
+                CharOfHero.selectChar.setMoney(CharOfHero.selectChar.getMoney() + this.enemy.getMoney());
                 break;
             }
         } while (true);
-
+    }
+    public int getCounterEntry(){
+        return counterEntry;
+    }
+    public void setCounterEntry(int counterEntry){
+        this.counterEntry=counterEntry;
+    }
+    public CharOfEnemy getEnemy(){
+        return enemy;
+    }
+    public void setEnemy(CharOfEnemy enemy){
+        this.enemy=enemy;
+    }
+    public String getLostProperty(){
+        return lostProperty;
+    }
+    public void setLostProperty(String lostProperty){
+        this.lostProperty=lostProperty;
     }
 
 }

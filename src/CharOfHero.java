@@ -1,11 +1,12 @@
 import java.util.Scanner;
+
 public class CharOfHero extends Character {
     public static Scanner input = new Scanner(System.in);
     public static CharOfHero selectChar;
-    public Inventory[] inventory;
-    public int defance;
+    private Inventory[] inventory;
+    private int defance;
 
-    CharOfHero(String skin, int health, int damage, int money,Inventory[] inventory, int defance) {
+    CharOfHero(String skin, int health, int damage, int money, Inventory[] inventory, int defance) {
         super(skin, health, damage, money);
         this.inventory = inventory;
         this.defance = defance;
@@ -30,6 +31,7 @@ public class CharOfHero extends Character {
             }
         } while (true);
     }
+
     public void useTool() {
         printInventory();
         System.out.print("(Alet seç): ");
@@ -38,23 +40,36 @@ public class CharOfHero extends Character {
             if (Main.inventory[selectTool] == null) {
                 Main.useTool = Main.inventory[0];
             } else {
-                CharOfHero.selectChar.damage -= Main.useTool.extraDefance;
-                CharOfHero.selectChar.damage -= Main.useTool.extraDamage;
+                CharOfHero.selectChar.setDamage(CharOfHero.selectChar.getDamage() - Main.useTool.getExtraDefance());
+                CharOfHero.selectChar.setDamage(CharOfHero.selectChar.getDamage() - Main.useTool.getExtraDamage());
                 Main.useTool = Main.inventory[selectTool];
-                CharOfHero.selectChar.defance += Main.useTool.extraDefance;
-                CharOfHero.selectChar.damage += Main.useTool.extraDamage;
+                CharOfHero.selectChar.defance += Main.useTool.getExtraDefance();
+                CharOfHero.selectChar.setDamage(CharOfHero.selectChar.getDamage() + Main.useTool.getExtraDamage());
             }
 
         } else {
             System.out.println("Hatalı seçim");
         }
     }
+
     public void printInventory() {
         for (int i = 0; i < Main.inventory.length; i++) {
             if (Main.inventory[i] != null) {
-                System.out.print(Main.inventory[i].skin + " " + i + "\t");
+                System.out.print(Main.inventory[i].getSkin() + " " + i + "\t");
             }
         }
+    }
+    public Inventory[] getInventory(){
+        return inventory;
+    }
+    public void setInventory(Inventory[] inventory){
+        this.inventory=inventory;
+    }
+    public int getDefance(){
+        return defance;
+    }
+    public void setDefance(int defance){
+        this.defance=defance;
     }
 
 
