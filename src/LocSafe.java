@@ -10,7 +10,6 @@ public class LocSafe extends Location {
             System.out.println("🤴(Kral):Tüm eşyaları toplamadan gelme!");
         }
     }
-
     public void regeneration() {
         CharOfHero.selectChar.setHealth(CharOfHero.selectChar.getMaxHealth());
         System.out.println("Canınn yenilendi");
@@ -39,6 +38,7 @@ public class LocSafe extends Location {
             System.out.println("Yanlış seçim");
         }
     }
+
     public Inventory[] getStore(){
         return store;
     }

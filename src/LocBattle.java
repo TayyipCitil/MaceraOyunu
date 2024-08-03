@@ -8,8 +8,8 @@ public class LocBattle extends Location {
         this.lostProperty = lostProperty;
         this.counterEntry = counterEntry;
     }
-
     public void combat() {
+        this.enemy.setDamage(this.enemy.getDamage()-CharOfHero.selectChar.getDefance());
         do {
             if (CharOfHero.selectChar.getHealth() < 0 && this.enemy.getHealth() < 0) {
                 CharOfHero.selectChar.setHealth(0);

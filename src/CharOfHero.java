@@ -38,12 +38,13 @@ public class CharOfHero extends Character {
         int selectTool = input.nextInt();
         if (selectTool == 0 || selectTool == 1 || selectTool == 2 || selectTool == 3) {
             if (Main.inventory[selectTool] == null) {
+                System.out.println("Bu slot boş");
                 Main.useTool = Main.inventory[0];
             } else {
-                CharOfHero.selectChar.setDamage(CharOfHero.selectChar.getDamage() - Main.useTool.getExtraDefance());
                 CharOfHero.selectChar.setDamage(CharOfHero.selectChar.getDamage() - Main.useTool.getExtraDamage());
+                CharOfHero.selectChar.setDefance(CharOfHero.selectChar.getDefance() - Main.useTool.getExtraDefance());
                 Main.useTool = Main.inventory[selectTool];
-                CharOfHero.selectChar.defance += Main.useTool.getExtraDefance();
+                CharOfHero.selectChar.setDefance(CharOfHero.selectChar.getDefance() + Main.useTool.getExtraDefance());
                 CharOfHero.selectChar.setDamage(CharOfHero.selectChar.getDamage() + Main.useTool.getExtraDamage());
             }
 
