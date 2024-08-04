@@ -12,6 +12,9 @@ public class LocSafe extends Location {
     public void regeneration() {
         CharOfHero.selectChar.setHealth(CharOfHero.selectChar.getMaxHealth());
         System.out.println("Canınn yenilendi");
+        CharOfHero.selectChar.setMoney(CharOfHero.selectChar.getMoney() - 5);
+        System.out.println("Tedavi ücreti 5 altın kesenden alındı");
+        System.out.println("Kesede kalan altın: " + CharOfHero.selectChar.getMoney());
     }
 
     public void buy() {
@@ -24,15 +27,15 @@ public class LocSafe extends Location {
         select = input.nextInt();
         if (select == 1 || select == 2 || select == 3) {
             //ilk alet hep yumruk ve inventory lerin biri 3 diğeri 4 elemanlı bu sebeple biri select diğeri select-1
-            if (store[select-1] == null) {
+            if (store[select - 1] == null) {
                 System.out.println("Bu aleti satın aldın");
-            } else if (CharOfHero.selectChar.getMoney() < store[select-1].getMoney()) {
+            } else if (CharOfHero.selectChar.getMoney() < store[select - 1].getMoney()) {
                 System.out.println("Yetersiz altın");
             } else {
                 System.out.println("Hayırlı olsun");
-                Main.inventory[select] = store[select-1];
-                CharOfHero.selectChar.setMoney(CharOfHero.selectChar.getMoney() - store[select-1].getMoney());
-                store[select-1] = null;
+                Main.inventory[select] = store[select - 1];
+                CharOfHero.selectChar.setMoney(CharOfHero.selectChar.getMoney() - store[select - 1].getMoney());
+                store[select - 1] = null;
             }
         } else if (select == 4) {
             System.out.println("Yine bekleriz");

@@ -39,25 +39,25 @@ public abstract class Game {
         if (CharOfHero.selectChar.getHealth() <= 0) {
             //lost
             System.out.println("==========☠️Kaybettin☠️==========");
-            System.out.print("Tekrar denemek ister misin? evt(1) hyr(2) : ");
-            select = input.nextInt();
-            do {
-                if (select == 1) {
-                    CharOfHero.selectChar();
-                    story();
-                    start();
-                    break;
-                } else if (select == 2) {
-                    break;
-                } else {
-                    System.out.println("Hatalı seçim");
-                }
-            } while (true);
         } else {
             //win
             System.out.println("🤴(Kral):Aferim kahraman,Kızım ile evlenebilirsin.");
             System.out.println("👸(Prenses):Ne?");
             System.out.println("==========👰Kazandın🤵===========");
         }
+        System.out.print("Tekrar denemek ister misin? evt(1) hyr(2) : ");
+        select = input.nextInt();
+        do {
+            if (select == 1) {
+                CharOfHero.selectChar();
+                story();
+                start();
+                break;
+            } else if (select == 2) {
+                break;
+            } else {
+                System.out.println("Hatalı seçim");
+            }
+        } while (true);
     }
 }
