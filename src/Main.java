@@ -34,6 +34,7 @@ public abstract class Main {
                 System.out.print("Tekrar denemek ister misin? evt(1) hyr(2) : ");
                 int select = input.nextInt();
                 if (select == 1) {
+                    Game.keepGoingGame=true;
                     CharOfHero.selectChar();
                     Game.story();
                     Game.start();
