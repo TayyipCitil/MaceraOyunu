@@ -23,10 +23,10 @@ public abstract class Game {
             System.out.print("(1) Envanter \t(2) Konum :");
             Game.select = input.nextInt();
             if (Game.select == 1) {
-                CharOfHero.selectChar.useTool();
+                CharOfHero.getSelectChar().useTool();
             } else if (Game.select == 2) {
-                System.out.println("Sağlık: " + CharOfHero.selectChar.getHealth());
-                System.out.println("Eldeki eşya: " + Main.useTool.getSkin());
+                System.out.println("Sağlık: " + CharOfHero.getSelectChar().getHealth());
+                System.out.println("Eldeki eşya: " + CharOfHero.getSelectChar().getUseTool().getSkin());
                 Location.selectLoc();
             } else {
                 System.out.println("Hatalı seçim");
@@ -36,7 +36,7 @@ public abstract class Game {
     }
 
     public static void winOrLose() {
-        if (CharOfHero.selectChar.getHealth() <= 0) {
+        if (CharOfHero.getSelectChar().getHealth() <= 0) {
             //lost
             System.out.println("==========☠️Kaybettin☠️==========");
         } else {
@@ -45,19 +45,5 @@ public abstract class Game {
             System.out.println("👸(Prenses):Ne?");
             System.out.println("==========👰Kazandın🤵===========");
         }
-        System.out.print("Tekrar denemek ister misin? evt(1) hyr(2) : ");
-        select = input.nextInt();
-        do {
-            if (select == 1) {
-                CharOfHero.selectChar();
-                story();
-                start();
-                break;
-            } else if (select == 2) {
-                break;
-            } else {
-                System.out.println("Hatalı seçim");
-            }
-        } while (true);
     }
 }

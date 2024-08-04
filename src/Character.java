@@ -1,6 +1,6 @@
 public abstract class Character extends Game {
     private final String skin;
-    private int maxHealth;
+    private final int maxHealth;
     private int health;
     private int damage;
     private int money;
@@ -15,12 +15,8 @@ public abstract class Character extends Game {
     public String getSkin(){
         return skin;
     }
-
     public int getMaxHealth() {
         return maxHealth;
-    }
-    public void setMaxHealth(int maxHealth){
-        this.maxHealth=maxHealth;
     }
     public int getHealth(){
         return health;
