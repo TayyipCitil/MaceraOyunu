@@ -1,11 +1,8 @@
-import java.util.Scanner;
-
 public abstract class Location extends Game {
     static void selectLoc() {
-        Scanner input = new Scanner(System.in);
         do {
             System.out.print("Güvenli Bölgeler(1) Macera Bölgeleri(2): ");
-            int select = input.nextInt();
+            select = input.nextInt();
             if (select == 1) {
                 System.out.print("🏰Kale(1)\n💰Mağza(2)\n🌙Şifa Çadırı(3)\n(Çıkış)(4) :");
                 select = input.nextInt();

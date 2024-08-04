@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class LocSafe extends Location {
     private static Inventory[] store = {Main.arrow, Main.shield, Main.sword};
 
@@ -18,26 +16,25 @@ public class LocSafe extends Location {
 
     public void buy() {
         System.out.println("Kesedeki altın: " + CharOfHero.selectChar.getMoney());
-        int selectTool;
-        Scanner input = new Scanner(System.in);
         System.out.print("(Ürün seç)\n" +
-                "(0) 🏹 : " + Main.arrow.getMoney() + " altın\n" +
-                "(1) 🛡️ : " + Main.shield.getMoney() + " altın\n" +
-                "(2) 🗡️ : " + Main.sword.getMoney() + " altın\n" +
-                "(3)Çıkış: ");
-        selectTool = input.nextInt();
-        if (selectTool == 0 || selectTool == 1 || selectTool == 2) {
-            if (store[selectTool] == null) {
+                "(1) 🏹 : " + Main.arrow.getMoney() + " altın\n" +
+                "(2) 🛡️ : " + Main.shield.getMoney() + " altın\n" +
+                "(3) 🗡️ : " + Main.sword.getMoney() + " altın\n" +
+                "(4)Çıkış: ");
+        select = input.nextInt();
+        if (select == 1 || select == 2 || select == 3) {
+            //ilk alet hep yumruk ve inventory lerin biri 3 diğeri 4 elemanlı bu sebeple biri select diğeri select-1
+            if (store[select-1] == null) {
                 System.out.println("Bu aleti satın aldın");
-            } else if (CharOfHero.selectChar.getMoney() < store[selectTool].getMoney()) {
+            } else if (CharOfHero.selectChar.getMoney() < store[select-1].getMoney()) {
                 System.out.println("Yetersiz altın");
             } else {
                 System.out.println("Hayırlı olsun");
-                Main.inventory[selectTool + 1] = store[selectTool];//ilk alet hep yumruk olsundiye +1 ekledim
-                CharOfHero.selectChar.setMoney(CharOfHero.selectChar.getMoney() - store[selectTool].getMoney());
-                store[selectTool] = null;
+                Main.inventory[select] = store[select-1];
+                CharOfHero.selectChar.setMoney(CharOfHero.selectChar.getMoney() - store[select-1].getMoney());
+                store[select-1] = null;
             }
-        } else if (selectTool == 3) {
+        } else if (select == 4) {
             System.out.println("Yine bekleriz");
         } else {
             System.out.println("Yanlış seçim");

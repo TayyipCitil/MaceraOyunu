@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public abstract class Game {
     public static boolean keepGoingGame = true;
+    public static Scanner input = new Scanner(System.in);
+    public static int select;
 
     public static void story() {
         System.out.println("========Macera Diyarı========");
@@ -18,12 +20,11 @@ public abstract class Game {
 
     public static void start() {
         do {
-            Scanner input = new Scanner(System.in);
             System.out.print("(1) Envanter \t(2) Konum :");
-            int select = input.nextInt();
-            if (select == 1) {
+            Game.select = input.nextInt();
+            if (Game.select == 1) {
                 CharOfHero.selectChar.useTool();
-            } else if (select == 2) {
+            } else if (Game.select == 2) {
                 System.out.println("Sağlık: " + CharOfHero.selectChar.getHealth());
                 System.out.println("Eldeki eşya: " + Main.useTool.getSkin());
                 Location.selectLoc();
@@ -39,8 +40,7 @@ public abstract class Game {
             //lost
             System.out.println("==========☠️Kaybettin☠️==========");
             System.out.print("Tekrar denemek ister misin? evt(1) hyr(2) : ");
-            Scanner input = new Scanner(System.in);
-            int select = input.nextInt();
+            select = input.nextInt();
             do {
                 if (select == 1) {
                     CharOfHero.selectChar();
@@ -60,5 +60,4 @@ public abstract class Game {
             System.out.println("==========👰Kazandın🤵===========");
         }
     }
-
 }
