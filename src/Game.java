@@ -10,10 +10,12 @@ public abstract class Game {
 
         //story
         System.out.println("========🏰Kale========");
-        System.out.println("🤴(Kral):Bu diyarlarda kızımla evlenmeyi hak eden bir Yiğit var mı bilmiyorum");
+        System.out.println("🤴(Kral):Bu diyarlarda kızımla evlenmeyi hak eden bir Yiğit var mı?");
         System.out.println("🤴(Kral):Bunun için bir yarışma düzenliyorum");
-        System.out.println("🤴(Kral):Yıllar önce bir büyücü asamı,bir gladyatör kılıcımı,bir hırsız tacımı çalmıştı");
-        System.out.println("🤴(Kral):Şimdi kayıp eşyalarımı bulup getiren kişi Yiğitliğni kanıtlamış olur");
+        System.out.println("🤴(Kral):Yıllar önce bir büyücü asamı,");
+        System.out.println("🤴(Kral):bir gladyatör kılıcımı,");
+        System.out.println("🤴(Kral):bir hırsız tacımı çalmıştı");
+        System.out.println("🤴(Kral):Kayıp eşyalarımı bulup getiren kişi Yiğitliğni kanıtlar");
         System.out.println("🤴(Kral):Ve kızım ile evlenmeye hak kazanır");
         System.out.println("🤴(Kral):Yolunuz açık olsun");
     }
