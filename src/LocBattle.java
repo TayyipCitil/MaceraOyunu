@@ -8,17 +8,10 @@ public class LocBattle extends Location {
         this.lostProperty = lostProperty;
         this.counterEntry = counterEntry;
     }
+
     public void combat() {
-        this.enemy.setDamage(this.enemy.getDamage()-CharOfHero.selectChar.getDefance());
+        this.enemy.setDamage(this.enemy.getDamage() - CharOfHero.selectChar.getDefance());
         do {
-            if (CharOfHero.selectChar.getHealth() < 0 && this.enemy.getHealth() < 0) {
-                CharOfHero.selectChar.setHealth(0);
-                this.enemy.setHealth(0);
-            } else if (CharOfHero.selectChar.getHealth() < 0) {
-                CharOfHero.selectChar.setHealth(0);
-            } else if (this.enemy.getHealth() < 0) {
-                this.enemy.setHealth(0);
-            }
             System.out.print(CharOfHero.selectChar.getSkin() + "(Sen) Sağlık: " + CharOfHero.selectChar.getHealth() + "\t");
             System.out.println(this.enemy.getSkin() + "(rakip) Sağlık: " + this.enemy.getHealth());
             System.out.println("=====================");
@@ -26,43 +19,55 @@ public class LocBattle extends Location {
             CharOfHero.selectChar.setHealth(CharOfHero.selectChar.getHealth() - this.enemy.getDamage());
             this.enemy.setHealth(this.enemy.getHealth() - CharOfHero.selectChar.getDamage());
 
-            if (CharOfHero.selectChar.getHealth() <= 0 && this.enemy.getHealth() <= 0) {
+            if (CharOfHero.selectChar.getHealth() == 0) {
+                System.out.print(CharOfHero.selectChar.getSkin() + "(Sen) Sağlık: " + CharOfHero.selectChar.getHealth() + "\t");
+                System.out.println(this.enemy.getSkin() + "(rakip) Sağlık: " + this.enemy.getHealth());
+                System.out.println("=====================");
                 System.out.println("💀Öldün💀");
                 keepGoingGame = false;
                 break;
-            } else if (CharOfHero.selectChar.getHealth() <= 0) {
-                System.out.println("💀Öldün💀");
-                keepGoingGame = false;
-                break;
-            } else if (this.enemy.getHealth() <= 0) {
+            } else if (this.enemy.getHealth() == 0) {
+                System.out.print(CharOfHero.selectChar.getSkin() + "(Sen) Sağlık: " + CharOfHero.selectChar.getHealth() + "\t");
+                System.out.println(this.enemy.getSkin() + "(rakip) Sağlık: " + this.enemy.getHealth());
+                System.out.println("=====================");
+                this.enemy.setHealth(this.enemy.getMaxHealth());
+                this.enemy.setDamage(this.enemy.getDamage() + CharOfHero.selectChar.getDefance());
                 if (counterEntry == 0) {
                     System.out.println("Mücadeleyi kazandın ve kayıp eşya " + this.lostProperty + "buldun ");
                     Inventory.lostPropertyNum++;
-                    counterEntry++;
+                }else{
+                    System.out.println("Başka bir "+this.enemy.getSkin()+" öldürdün");
                 }
+                counterEntry++;
                 System.out.println("Kazanılan para: " + this.enemy.getMoney());
                 CharOfHero.selectChar.setMoney(CharOfHero.selectChar.getMoney() + this.enemy.getMoney());
                 break;
             }
         } while (true);
     }
-    public int getCounterEntry(){
+
+    public int getCounterEntry() {
         return counterEntry;
     }
-    public void setCounterEntry(int counterEntry){
-        this.counterEntry=counterEntry;
+
+    public void setCounterEntry(int counterEntry) {
+        this.counterEntry = counterEntry;
     }
-    public CharOfEnemy getEnemy(){
+
+    public CharOfEnemy getEnemy() {
         return enemy;
     }
-    public void setEnemy(CharOfEnemy enemy){
-        this.enemy=enemy;
+
+    public void setEnemy(CharOfEnemy enemy) {
+        this.enemy = enemy;
     }
-    public String getLostProperty(){
+
+    public String getLostProperty() {
         return lostProperty;
     }
-    public void setLostProperty(String lostProperty){
-        this.lostProperty=lostProperty;
+
+    public void setLostProperty(String lostProperty) {
+        this.lostProperty = lostProperty;
     }
 
 }

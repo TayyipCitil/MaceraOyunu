@@ -1,6 +1,8 @@
 import java.util.Scanner;
+
 public abstract class Game {
     public static boolean keepGoingGame = true;
+
     public static void story() {
         System.out.println("========Macera Diyarı========");
 
@@ -36,6 +38,21 @@ public abstract class Game {
         if (CharOfHero.selectChar.getHealth() <= 0) {
             //lost
             System.out.println("==========☠️Kaybettin☠️==========");
+            System.out.print("Tekrar denemek ister misin? evt(1) hyr(2) : ");
+            Scanner input = new Scanner(System.in);
+            int select = input.nextInt();
+            do {
+                if (select == 1) {
+                    CharOfHero.selectChar();
+                    story();
+                    start();
+                    break;
+                } else if (select == 2) {
+                    break;
+                } else {
+                    System.out.println("Hatalı seçim");
+                }
+            } while (true);
         } else {
             //win
             System.out.println("🤴(Kral):Aferim kahraman,Kızım ile evlenebilirsin.");

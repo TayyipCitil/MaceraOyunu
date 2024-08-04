@@ -10,6 +10,7 @@ public class LocSafe extends Location {
             System.out.println("🤴(Kral):Tüm eşyaları toplamadan gelme!");
         }
     }
+
     public void regeneration() {
         CharOfHero.selectChar.setHealth(CharOfHero.selectChar.getMaxHealth());
         System.out.println("Canınn yenilendi");
@@ -19,7 +20,11 @@ public class LocSafe extends Location {
         System.out.println("Kesedeki altın: " + CharOfHero.selectChar.getMoney());
         int selectTool;
         Scanner input = new Scanner(System.in);
-        System.out.print("(Ürün seç)\n(0) 🏹 : 20 altın\n(1) 🛡️ : 15 altın\n(2) 🗡️ : 25 altın\n Çıkış(3): ");
+        System.out.print("(Ürün seç)\n" +
+                "(0) 🏹 : " + Main.arrow.getMoney() + " altın\n" +
+                "(1) 🛡️ : " + Main.shield.getMoney() + " altın\n" +
+                "(2) 🗡️ : " + Main.sword.getMoney() + " altın\n" +
+                "(3)Çıkış: ");
         selectTool = input.nextInt();
         if (selectTool == 0 || selectTool == 1 || selectTool == 2) {
             if (store[selectTool] == null) {
@@ -39,10 +44,11 @@ public class LocSafe extends Location {
         }
     }
 
-    public Inventory[] getStore(){
+    public Inventory[] getStore() {
         return store;
     }
-    public void setStore(Inventory[] store){
-        LocSafe.store=store;
+
+    public void setStore(Inventory[] store) {
+        LocSafe.store = store;
     }
 }
